@@ -7,7 +7,11 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Center(
-        child:Text("This is text"), 
+        child:Text("This is text",style: TextStyle(
+          fontSize: 40,
+          color: Colors.blue,
+          fontWeight: FontWeight.bold,
+        ),), 
         ),
     );
   }
