@@ -3,10 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
 
   @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  @override
+
+  String name = "";
   Widget build(BuildContext context) {
 
     int date = DateTime.friday;
@@ -22,7 +29,7 @@ class Login extends StatelessWidget {
             width: 20.0,
           ),
           Text(
-            "Welcome",
+            "Welcome $name",
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
@@ -41,6 +48,10 @@ class Login extends StatelessWidget {
               hintText: "Enter Username",
               labelText: "UserName",
             ),
+            onChanged: (value) => {
+              name = value,
+              setState((){}),
+            },
           ),
           TextFormField(
             obscureText:true,
@@ -53,9 +64,16 @@ class Login extends StatelessWidget {
             height: 20.0,
             width: 20.0,
           ),
-          ElevatedButton(onPressed: (){Navigator.pushNamed(context, MyRoutes.homeRoute);},style: TextButton.styleFrom(
-            minimumSize: Size(150,40),
-          ), child: Text("Login")),
+          // ElevatedButton(onPressed: (){Navigator.pushNamed(context, MyRoutes.homeRoute);},style: TextButton.styleFrom(
+          //   minimumSize: Size(150,40),
+          // ), child: Text("Login")),
+          Container(
+            width: 100,
+            height: 50,
+            alignment: Alignment.center,
+            color: Colors.deepPurple,
+            child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+          ),
           
           ],))
       
